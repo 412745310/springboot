@@ -107,5 +107,6 @@
 		<module>springboot-redismq</module>
 		<module>springboot-rocketmq</module>
     <module>springboot-fileupload</module>
-  </modules>
+    <module>springboot-scheduling</module>
+	</modules>
 </project>
