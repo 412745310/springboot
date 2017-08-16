@@ -16,6 +16,8 @@ public class PersonController extends WebMvcConfigurerAdapter {
 
 	@GetMapping("/show-form")
 	public String showForm(PersonForm personForm) {
+		personForm.setAge(0);
+		personForm.setName("例如：张三");
 		return "form";
 	}
 
@@ -25,7 +27,8 @@ public class PersonController extends WebMvcConfigurerAdapter {
 		if (bindingResult.hasErrors()) {
 			return "form";
 		}
-		return "redirect:/result";
+		// return "redirect:/result";
+		return "result";
 	}
 
 	@Override

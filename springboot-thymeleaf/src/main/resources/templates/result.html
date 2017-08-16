@@ -5,6 +5,9 @@
 <title>result</title>
 </head>
 <body>
-	Congratulations! You are old enough to sign up for this site.
+	<p>Congratulations! You are old enough to sign up for this site.</p>
+	<p th:text="'Name ' + ${personForm.name}" />
+    <p th:text="'Age ' + ${personForm.age}" />
+    <a href="/show-form">Submit another message</a>
 </body>
 </html>
