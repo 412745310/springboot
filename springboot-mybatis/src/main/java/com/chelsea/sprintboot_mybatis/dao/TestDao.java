@@ -7,5 +7,7 @@ import com.chelsea.sprintboot_mybatis.bean.Test;
 public interface TestDao {
 
 	List<Test> queryTest();
+	
+	void insert(Test test);
 
 }

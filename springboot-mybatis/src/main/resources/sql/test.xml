@@ -9,5 +9,9 @@
 			   score
 		from test
 	</select>
+	
+	<insert id="insert">
+		insert into test (name, score) values (#{name}, #{score})
+	</insert>
 
 </mapper>

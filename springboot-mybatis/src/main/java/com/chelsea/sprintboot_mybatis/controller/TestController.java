@@ -14,13 +14,18 @@ import com.chelsea.sprintboot_mybatis.service.TestService;
 @RequestMapping("/test")
 public class TestController {
 
-	@Autowired
-	TestService testService;
+    @Autowired
+    TestService testService;
 
-	@RequestMapping("/query-test")
-	@ResponseBody
-	public List<Test> queryTest() {
-		return testService.queryTest();
-	}
+    @RequestMapping("/query-test")
+    @ResponseBody
+    public List<Test> queryTest() {
+        return testService.queryTest();
+    }
+
+    @RequestMapping("/insert-test")
+    public void insertTest() {
+        testService.insertTest();
+    }
 
 }
