@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chelsea.springboot.multidb.mapper.test1.User1Mapper">
+
+	<select id="getAll" resultType="com.chelsea.springboot.multidb.domain.UserEntity">
+		SELECT id as id,
+			   username as username
+		FROM users
+	</select>
+
+</mapper>
