@@ -7,26 +7,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chelsea.springboot_properties.bean.ConfigBean;
 import com.chelsea.springboot_properties.bean.User;
+import com.chelsea.springboot_properties.service.HelloService;
 
 @RestController
-@EnableConfigurationProperties({ ConfigBean.class, User.class })
+@EnableConfigurationProperties({ConfigBean.class, User.class})
 public class HelloController {
 
-	@Autowired
-	ConfigBean configBean;
+    @Autowired
+    ConfigBean configBean;
 
-	@Autowired
-	User user;
+    @Autowired
+    User user;
 
-	@RequestMapping("/hello")
-	public String hello() {
-		return configBean.getGreeting() + " >>>>" + configBean.getName()
-				+ " >>>>" + configBean.getUuid() + " >>>>"
-				+ configBean.getMax() + ">>>>" + configBean.getNumber();
-	}
+    @Autowired
+    HelloService helloService;
 
-	@RequestMapping("/user")
-	public String user() {
-		return user.getName() + user.getAge();
-	}
+    @RequestMapping("/hello")
+    public String hello() {
+        return configBean.getGreeting() + " >>>>" + configBean.getName() + " >>>>" + configBean.getUuid() + " >>>>"
+                + configBean.getMax() + ">>>>" + configBean.getNumber();
+    }
+
+    @RequestMapping("/user")
+    public String user() {
+        return user.getName() + user.getAge();
+    }
+
+    @RequestMapping("/sayHello")
+    public String sayHello() {
+        return helloService.sayHello();
+    }
 }
