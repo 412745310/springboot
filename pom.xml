@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.chelsea</groupId>
@@ -123,6 +124,11 @@
 				<version>8.5.31</version>
 				<scope>provided</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.kafka</groupId>
+				<artifactId>spring-kafka</artifactId>
+				<version>1.1.6.RELEASE</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -158,6 +164,7 @@
 		<module>springboot-mail</module>
 		<module>springboot-log4j</module>
 		<module>springboot-web</module>
-    <module>springboot-multidb</module>
-  </modules>
+		<module>springboot-multidb</module>
+		<module>springboot-kafka</module>
+	</modules>
 </project>
