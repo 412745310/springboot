@@ -12,10 +12,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaConsumer {
 
-    @KafkaListener(topics = {"app_log"})
+    @KafkaListener(topics = {"testTopic"})
     public void receive(String message) throws InterruptedException {
-        Thread.sleep(3000);
         System.out.println("app_log--消费消息:" + message);
+        Thread.sleep(10000);
     }
 
 }
