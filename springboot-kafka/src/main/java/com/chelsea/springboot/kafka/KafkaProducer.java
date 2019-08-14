@@ -1,7 +1,5 @@
 package com.chelsea.springboot.kafka;
 
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -26,11 +24,15 @@ public class KafkaProducer {
      * 定时任务
      */
     @Scheduled(cron = "0/1 * * * * ?")
-    public void send() {
-        String message = UUID.randomUUID().toString();
-        ListenableFuture<?> future = kafkaTemplate.send("app_log", message);
-        future.addCallback(o -> System.out.println("send-消息发送成功：" + message),
-                throwable -> System.out.println("消息发送失败：" + message));
+    public void send() throws Exception {
+        int i = 0;
+        while (true) {
+            String message = "aaa_" + (i++);
+            ListenableFuture<?> future = kafkaTemplate.send("testTopic", message);
+            future.addCallback(o -> System.out.println("send-消息发送成功：" + message),
+                    throwable -> System.out.println("消息发送失败：" + message));
+            Thread.sleep(1000);
+        }
     }
 
 }
