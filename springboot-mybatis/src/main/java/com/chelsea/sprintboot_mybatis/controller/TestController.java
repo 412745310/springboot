@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chelsea.sprintboot_mybatis.bean.PageRequest;
+import com.chelsea.sprintboot_mybatis.bean.PageResult;
 import com.chelsea.sprintboot_mybatis.bean.Test;
 import com.chelsea.sprintboot_mybatis.service.TestService;
 
@@ -26,6 +28,18 @@ public class TestController {
     @RequestMapping("/insert-test")
     public void insertTest() {
         testService.insertTest();
+    }
+    
+    /**
+     * 分页查询
+     * 
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    @RequestMapping("/selectPage")
+    public PageResult selectPage(PageRequest pageRequest) {
+        return testService.selectPage(pageRequest);
     }
 
 }
