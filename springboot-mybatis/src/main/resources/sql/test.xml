@@ -13,5 +13,11 @@
 	<insert id="insert">
 		insert into test (name, score) values (#{name}, #{score})
 	</insert>
+	
+	<select id="selectPage" resultType="com.chelsea.sprintboot_mybatis.bean.Detail">
+		select id, groupName, operTime
+		from ec_ll_allocate_detail
+		order by id desc
+	</select>
 
 </mapper>
