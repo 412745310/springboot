@@ -12,5 +12,7 @@ public interface TestDao {
 	void insert(Test test);
 	
     List<Detail> selectPage();
+    
+    void insertBatch(List<Test> test);
 
 }

@@ -41,5 +41,10 @@ public class TestController {
     public PageResult selectPage(PageRequest pageRequest) {
         return testService.selectPage(pageRequest);
     }
+    
+    @RequestMapping("/insert-test-batch")
+    public List<Long> insertTestBatch() {
+        return testService.insertTestBatch();
+    }
 
 }

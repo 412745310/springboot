@@ -14,6 +14,13 @@
 		insert into test (name, score) values (#{name}, #{score})
 	</insert>
 	
+	<insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+		insert into test (name) values 
+		<foreach collection="list" item="element" index="index" separator=",">
+			(#{element.name})
+		</foreach>
+	</insert>
+	
 	<select id="selectPage" resultType="com.chelsea.sprintboot_mybatis.bean.Detail">
 		select id, groupName, operTime
 		from ec_ll_allocate_detail

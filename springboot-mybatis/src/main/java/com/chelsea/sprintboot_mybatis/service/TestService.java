@@ -1,7 +1,8 @@
 package com.chelsea.sprintboot_mybatis.service;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,17 @@ public class TestService {
     
     public void insertTest() {
         insert();
+    }
+    
+    @Transactional
+    public List<Long> insertTestBatch() {
+        List<Test> list = new ArrayList<>();
+        list.add(new Test("aaa"));
+        list.add(new Test("bbb"));
+        list.add(new Test("ccc"));
+        testDao.insertBatch(list);
+        List<Long> idList = list.stream().map(Test::getId).collect(Collectors.toList());
+        return idList;
     }
 
     @Transactional()
