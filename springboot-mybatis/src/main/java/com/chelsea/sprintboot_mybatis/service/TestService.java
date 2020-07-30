@@ -56,11 +56,13 @@ public class TestService {
     }
     
     public PageResult selectPage(PageRequest pageRequest) {
-        int pageNum = pageRequest.getPageNum();
-        int pageSize = pageRequest.getPageSize();
-        PageHelper.startPage(pageNum, pageSize);
+        PageHelper.startPage(1, Integer.MAX_VALUE - 1);
+        PageHelper.orderBy("id desc");
         List<Detail> list = testDao.selectPage();
-        return PageUtils.getPageResult(pageRequest, new PageInfo<Detail>(list));
+        for(int i = 0;i<list.size();i++) {
+            System.out.println(list.get(i).getId());
+        }
+        return null;
     }
     
 }
