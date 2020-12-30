@@ -28,7 +28,7 @@ public class KafkaConsumer {
     /**
      * 监听单条消费
      */
-    //@KafkaListener(topics = {"testlog"})
+    @KafkaListener(topics = {"testlog"})
     public void listen2(ConsumerRecord<String, String> record) {
         consumer(record);
     }
