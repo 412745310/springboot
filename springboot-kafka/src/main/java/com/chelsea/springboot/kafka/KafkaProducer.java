@@ -23,7 +23,7 @@ public class KafkaProducer {
     /**
      * 定时任务
      */
-    @Scheduled(cron = "0/1 * * * * ?")
+    @Scheduled(cron = "0 0 8 * * ?")
     public void send() throws Exception {
         int i = 0;
         while (true) {
